@@ -43,12 +43,19 @@ class Lexer:
     def scan(self, file):
         while(1):
             self.readch(file)
-            if self.peek == ' ' or self.peek == '\t':
+            if self.peek == '#':
+                while(True):
+                    self.readch(file)
+                    if self.peek == '\n':
+                        self.line = self.line + 1
+                        break
+            elif self.peek == ' ' or self.peek == '\t':
                 continue
             elif self.peek == '\n':
                 self.line = self.line + 1
             else:
                 break
+        
         
         if self.peek == '&':
             if self.readch_check('&', file):
@@ -80,6 +87,7 @@ class Lexer:
                 return Word.ge
             else:
                 return Token('>')
+            
             
         if self.peek.isdigit():
             v = 0

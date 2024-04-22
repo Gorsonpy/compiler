@@ -48,9 +48,6 @@
 <id, rc>
 <)>
 <;>
-<#>
-<id, split>
-<id, N>
 <if>
 <(>
 <id, KL>
@@ -103,9 +100,6 @@
 </>
 <id, K>
 <)>
-<#>
-<id, split>
-<id, N>
 <integer>
 <id, NR>
 <=>
