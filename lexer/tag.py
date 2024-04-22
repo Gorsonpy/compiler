@@ -24,3 +24,8 @@ class Tag:
     WHILE = 275
     FUNCTION = 276
     RETURN = 277
+    READ = 278
+    WRITE = 279
+    FOR = 280
+    REPEAT = 281
+    UNTIL = 282

@@ -15,12 +15,18 @@ class Lexer:
         self.words[w.lexeme] = w
     def __init__(self):
         self.reserve(Word("if", Tag.IF))
+        self.reserve(Word("read", Tag.READ))
+        self.reserve(Word("write", Tag.WRITE))
+        self.reserve(Word("for", Tag.FOR))
+        self.reserve(Word("repeat", Tag.REPEAT))
+        self.reserve(Word("until", Tag.UNTIL))
         self.reserve(Word("function", Tag.FUNCTION))
         self.reserve(Word("return", Tag.RETURN))
         self.reserve(Word("else", Tag.ELSE))
         self.reserve(Word("while", Tag.WHILE))
         self.reserve(Word("do", Tag.DO))
         self.reserve(Word("break", Tag.BREAK))
+
         self.reserve(Word.true)
         self.reserve(Word.false)
         self.reserve(Type.Int)
@@ -87,8 +93,20 @@ class Lexer:
                 return Word.ge
             else:
                 return Token('>')
-            
-            
+        
+        # 处理.5,识别为0.5
+        if self.peek == '.':
+            x = 0
+            d = 10.0
+            while True:
+                self.readch(file)
+                if not self.peek.isdigit():
+                    file.seek(file.tell() - 1)
+                    break
+                x = x + int(self.peek) / d
+                d = d * 10
+            return Real(x)
+
         if self.peek.isdigit():
             v = 0
             while True:
