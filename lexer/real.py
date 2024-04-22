@@ -1,3 +1,4 @@
+__package__ = "lexer"
 from .token import Token
 from .tag import Tag
 
@@ -7,4 +8,4 @@ class Real(Token):
         super().__init__(Tag.REAL)
         self.value = value
     def __str__(self):
-        return "" + str(self.value)
+        return f"<REAL, {self.value}>"

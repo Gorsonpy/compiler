@@ -1,3 +1,4 @@
+__package__ = "lexer"
 from .token import Token
 from .tag import Tag
 
@@ -8,7 +9,10 @@ class Word(Token):
         super().__init__(tag)
         self.lexeme = lexeme
     def __str__(self):
-        return self.lexeme
+        if self.tag == Tag.ID:
+            return f"<id, {self.lexeme}>"
+        else:
+            return f"<{self.lexeme}>"
 
 Word.andd = Word("&&", Tag.AND)
 Word.orr = Word("||", Tag.OR)

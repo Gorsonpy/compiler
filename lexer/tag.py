@@ -1,5 +1,6 @@
 # 定义了一些常量来表征这是什么类型的token
 # 例如Tag.NUM表示这是一个数字类型的token
+__package__ = "lexer"
 class Tag:
     AND = 256
     BASIC = 257
@@ -21,3 +22,4 @@ class Tag:
     TEMP = 273
     TRUE = 274
     WHILE = 275
+    FUNCTION = 276

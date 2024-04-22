@@ -1,3 +1,4 @@
+__package__ = "lexer"
 from .token import Token
 from .tag import Tag
 
@@ -6,4 +7,4 @@ class Num(Token):
         super().__init__(Tag.NUM)
         self.value = value
     def __str__(self):
-        return "" + str(self.value)
+        return f"<INT, {self.value}>"
