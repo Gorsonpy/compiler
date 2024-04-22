@@ -33,7 +33,7 @@
 <==>
 <INT, 1>
 <)>
-<id, return>
+<return>
 <(>
 <INT, 0>
 <)>
@@ -112,7 +112,7 @@
 <id, N>
 <->
 <id, NL>
-<id, return>
+<return>
 <(>
 <INT, 1>
 <+>

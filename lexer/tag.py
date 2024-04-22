@@ -23,3 +23,4 @@ class Tag:
     TRUE = 274
     WHILE = 275
     FUNCTION = 276
+    RETURN = 277

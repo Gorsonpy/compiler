@@ -16,6 +16,7 @@ class Lexer:
     def __init__(self):
         self.reserve(Word("if", Tag.IF))
         self.reserve(Word("function", Tag.FUNCTION))
+        self.reserve(Word("return", Tag.RETURN))
         self.reserve(Word("else", Tag.ELSE))
         self.reserve(Word("while", Tag.WHILE))
         self.reserve(Word("do", Tag.DO))
