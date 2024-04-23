@@ -11,6 +11,7 @@ class Lexer:
     line = 1
     peek = ' '
     words = {}
+    errChars = ['@', '#', '$']
     def reserve(self, w):
         self.words[w.lexeme] = w
     def __init__(self):
@@ -94,6 +95,20 @@ class Lexer:
             else:
                 return Token('>')
         
+        # 处理变量命名错误
+        if self.peek in self.errChars:
+            b = ""
+            while True:
+                b = b + self.peek
+                self.readch(file)
+                # 把整个错误单词读完 
+                if self.peek == ' ' or self.peek == '\n' or self.peek == '\t' or self.peek == '':
+                    break
+
+            s = f'line {self.line}\n SyntaxError: invalid syntax near "{b}"\n'
+            tok = Word(s, Tag.ERR)
+            return tok
+
         # 处理.5,识别为0.5
         if self.peek == '.':
             x = 0

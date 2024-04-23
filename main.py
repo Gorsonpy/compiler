@@ -5,7 +5,7 @@ from symbols.writeSys import WriteSys
 if __name__ == "__main__":
     lexer = Lexer()
     # 使用lexer读取miniRC.in 拆分成token保存到myout.txt
-    with open("miniRC.in", "r") as f:
+    with open("errInput.in", "r") as f:
         with open("myout.txt", "w") as out:
                 with open("mysys.txt", 'w') as sys:
                     symb = WriteSys()
@@ -14,6 +14,9 @@ if __name__ == "__main__":
                         if token is None:
                             symb.write(sys)
                             break
+                        if(token.tag == Tag.ERR):
+                            print(token.lexeme)
+                            continue
                         out.write(f"{token}\n")
                         symb.store(token, sys)
                         

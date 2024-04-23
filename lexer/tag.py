@@ -2,6 +2,7 @@
 # 例如Tag.NUM表示这是一个数字类型的token
 __package__ = "lexer"
 class Tag:
+    ERR = -1
     AND = 256
     BASIC = 257
     BREAK = 258
